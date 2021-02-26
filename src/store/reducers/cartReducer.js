@@ -1,18 +1,9 @@
-import {
-	ADD_DISH,
-	CLOSE_MODAL, INIT_CART,
-	OPEN_MODAL,
-	ORDER_FAILURE,
-	ORDER_REQUEST,
-	ORDER_SUCCESS,
-	REMOVE_DISH, SET_PURCHASING
-} from "../actions/cartActions";
+import {ADD_DISH, INIT_CART, ORDER_FAILURE, ORDER_REQUEST, ORDER_SUCCESS, REMOVE_DISH} from "../actions/cartActions";
 
 const initialState = {
 	cart: [],
 	orderLoading: false,
 	fetchError: false,
-	purchasing: false
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -48,8 +39,6 @@ const cartReducer = (state = initialState, action) => {
 			return {...state, orderLoading: false, ordered: true};
 		case ORDER_FAILURE:
 			return {...state, orderLoading: false, error: action.error};
-		case SET_PURCHASING:
-			return {...state, purchasing: action.purchasing};
 		default:
 			return state;
 	}

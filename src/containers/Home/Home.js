@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchDishes} from "../../store/actions/dishesActions";
-import {addDish, setPurchasing} from "../../store/actions/cartActions";
+import {addDish} from "../../store/actions/cartActions";
 import TransitionsModal from "../../components/UI/Modal/Modal";
 import Progress from "../../components/UI/Progress/Progress";
 
@@ -23,7 +23,6 @@ const Home = () => {
 	const dispatch = useDispatch();
 	const dishes = useSelector(state => state.dishes.dishes);
 	const loading = useSelector(state => state.dishes.dishLoading);
-	const cart = useSelector(state => state.cart.cart);
 	const [show, setShow] = useState(false);
 
 	const classes = useStyles();
@@ -53,12 +52,6 @@ const Home = () => {
 		dishesContainer = <Progress/>
 	}
 
-	const isPurchasable = () => {
-		if (cart.length > 0) {
-			dispatch(setPurchasing(true));
-		}
-	}
-
 	const handleShow = () => {
 		setShow(true);
 	}
@@ -70,7 +63,7 @@ const Home = () => {
 					{dishesContainer}
 				</Grid>
 				<Grid item xs={5} className={classes.gridItem}>
-					<Cart showPopup={handleShow} purchasable={isPurchasable}/>
+					<Cart showPopup={handleShow}/>
 				</Grid>
 			</Grid>
 

@@ -6,7 +6,6 @@ export const ORDER_REQUEST = 'ORDER_REQUEST';
 export const ORDER_SUCCESS = 'ORDER_SUCCESS';
 export const ORDER_FAILURE = 'ORDER_FAILURE';
 export const INIT_CART = 'INIT_CART';
-export const SET_PURCHASING = 'SET_PURCHASING';
 
 export const addDish = (dish) => ({type: ADD_DISH, dish});
 export const removeDish = (title) => ({type: REMOVE_DISH, title});
@@ -14,7 +13,6 @@ export const orderRequest = () => ({type: ORDER_REQUEST});
 export const orderSuccess = () => ({type: ORDER_SUCCESS});
 export const orderFailure = order => ({type: ORDER_FAILURE, order});
 export const initOrder = () => ({type: INIT_CART});
-export const setPurchasing = purchasing => ({type: SET_PURCHASING, purchasing});
 
 export const createOrder = order => {
 	return async dispatch => {

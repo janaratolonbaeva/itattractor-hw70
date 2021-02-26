@@ -112,7 +112,7 @@ const InputWithIcon = ({show}) => {
 						color="secondary"
 						onClick={show}
 					>
-						Secondary
+						Отправить
 					</Button>
 				</Grid>
 			</Grid>

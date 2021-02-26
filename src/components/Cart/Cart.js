@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {useDispatch, useSelector} from "react-redux";
-import {removeDish, setPurchasing} from "../../store/actions/cartActions";
+import {removeDish} from "../../store/actions/cartActions";
 import Progress from "../UI/Progress/Progress";
 
 const useStyle = makeStyles(() => ({
@@ -102,7 +102,7 @@ const Cart = (props) => {
 					variant="contained"
 					color="secondary"
 					onClick={props.showPopup}
-					disabled={!props.purchasable}
+					disabled={dish.length < 1 && true}
 				>
 					Заказать
 				</Button>
